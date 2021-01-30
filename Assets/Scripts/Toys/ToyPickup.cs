@@ -34,7 +34,8 @@ public class ToyPickup : MonoBehaviour
             }
 
             GameManager.instance.toyCountHub++;
-            Destroy(gameObject);
+            GameManager.instance.hasToy = true;
+            gameObject.SetActive(false);
         }
     }
 }

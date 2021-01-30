@@ -9,6 +9,8 @@ public class Dialogue
     [TextArea(3, 10)]
     public string[] sentences;
 
-    public Sprite npcFace;
-    public string name;
+    [HideInInspector]public Sprite npcFace;
+    [HideInInspector]public string name;
+    public bool isQuest;
+    public Speech speaker;
 }

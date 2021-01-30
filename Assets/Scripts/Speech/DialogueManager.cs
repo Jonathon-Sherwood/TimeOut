@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText;
     public Image image;
     public Animator anim;
+    private Speech speaker;
 
     private void Awake()
     {
@@ -32,7 +33,7 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, int questNum)
     {
         anim.SetBool("IsOpen", true);
 
@@ -46,23 +47,42 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
-        DisplayNextSentence();
+        DisplayNextSentence(dialogue, questNum);
     }
 
-    public void DisplayNextSentence()
+    public void DisplayNextSentence(Dialogue dialogue, int questNum)
     {
         if(sentences.Count == 0)
         {
-            EndDialogue();
+            if(dialogue.isQuest)
+            {
+                GameManager.instance.currentQuestToy = GameManager.instance.toys[questNum];
+            }
+            EndDialogue(dialogue);
             return;
         }
 
         string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
     }
 
-    public void EndDialogue()
+    IEnumerator TypeSentence (string sentence)
     {
+        dialogueText.text = "";
+        foreach(char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;
+        }
+    }
+
+    public void EndDialogue(Dialogue dialogue)
+    {
+        if(!GameManager.instance.hasToy && dialogue.speaker.quest.isQuest && GameManager.instance.currentQuestToy != null)
+        {
+            GameObject.Find(GameManager.instance.currentQuestToy.name.ToString()).layer = 9;
+        }
         anim.SetBool("IsOpen", false);
     }
 
