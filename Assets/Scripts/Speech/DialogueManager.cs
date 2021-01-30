@@ -79,11 +79,12 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue(Dialogue dialogue)
     {
+        anim.SetBool("IsOpen", false);
+        if (dialogue.speaker == null) { return; }
         if(!GameManager.instance.hasToy && dialogue.speaker.quest.isQuest && GameManager.instance.currentQuestToy != null)
         {
             GameObject.Find(GameManager.instance.currentQuestToy.name.ToString()).layer = 9;
         }
-        anim.SetBool("IsOpen", false);
     }
 
 }
