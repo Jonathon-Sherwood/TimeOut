@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
-
+    [HideInInspector] public bool canMove = true;
     Vector2 movement;
 
     private void Start()
@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!canMove) { return; }
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
