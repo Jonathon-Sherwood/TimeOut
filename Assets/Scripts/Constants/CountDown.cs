@@ -12,6 +12,8 @@ public class CountDown : MonoBehaviour
     public GameObject timesUpImage;
     public GameObject player;
     public GameObject playMusic;
+    public bool playing = false;
+    public AudioListener audioListener;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,8 @@ public class CountDown : MonoBehaviour
         waitCountdownImageThing.fillAmount = currentTimeLeft / timeLeft;
         if (currentTimeLeft < 0)
         {
-            playMusic.SetActive(true);
+            Screams();
+            playMusic.SetActive(false);
             timesUpImage.SetActive(true);
             player.GetComponent<PlayerMovement>().canMove = false;
             if(Input.anyKeyDown)
@@ -33,5 +36,26 @@ public class CountDown : MonoBehaviour
                 SceneManager.LoadScene(0);
             }
         }
+
+
     }
+
+    void Screams()
+    {
+        if (!playing)
+        {
+            AudioListener.volume = .06f;
+            AudioManager.instance.Play("CaughtScream");
+            AudioManager.instance.Play("Scream0");
+            AudioManager.instance.Play("Scream1");
+            AudioManager.instance.Play("Scream2");
+            AudioManager.instance.Play("Scream3");
+            AudioManager.instance.Play("Scream4");
+            AudioManager.instance.Play("Scream5");
+            AudioManager.instance.Play("Scream6");
+            AudioManager.instance.Play("Scream7");
+            playing = true;
+        }
+    }
+
 }

@@ -42,8 +42,8 @@ public class EnemyCatch : MonoBehaviour
             playgroundEntrance.SetActive(false);
             playgroundExit.SetActive(true);
             hubCover.SetActive(true);
-            gameObject.SetActive(false);
             catchImage.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 
