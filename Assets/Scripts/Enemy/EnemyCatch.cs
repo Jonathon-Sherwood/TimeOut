@@ -28,6 +28,7 @@ public class EnemyCatch : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             AudioManager.instance.Play("Caught");
+            AudioManager.instance.Play("CaughtScream");
             player.GetComponent<PlayerMovement>().canMove = false;
             caughtDialogue.text = dialogue[Random.Range(0, dialogue.Length)];
             player.transform.position = returnPoint.transform.position;

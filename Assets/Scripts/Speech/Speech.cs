@@ -24,6 +24,7 @@ public class Speech : MonoBehaviour
 
         if(canSpeak && Input.GetKeyDown(KeyCode.E))
         {
+            ChooseAudio();
             speechBubble.SetActive(false);
             if (quest.isQuest && !quest.hasQuestItem)
             {
@@ -54,6 +55,46 @@ public class Speech : MonoBehaviour
         if(canSpeak && Input.GetKeyDown(KeyCode.Space))
         {
             DialogueManager.instance.DisplayNextSentence(dialogue[dialogueNum], quest.toyQuestNum);
+        }
+    }
+
+    public void ChooseAudio()
+    {
+        if(quest.toyQuestNum == 0)
+        {
+            AudioManager.instance.Play("Scream0");
+        }
+        else if (quest.toyQuestNum == 1)
+        {
+            AudioManager.instance.Play("Scream1");
+        }
+        else if(quest.toyQuestNum == 2)
+        {
+            AudioManager.instance.Play("Scream2");
+        }
+        else if (quest.toyQuestNum == 3)
+        {
+            AudioManager.instance.Play("Scream3");
+        }
+        else if (quest.toyQuestNum == 4)
+        {
+            AudioManager.instance.Play("Scream4");
+        }
+        else if (quest.toyQuestNum == 5)
+        {
+            AudioManager.instance.Play("Scream5");
+        }
+        else if (quest.toyQuestNum == 6)
+        {
+            AudioManager.instance.Play("Scream6");
+        }
+        else if (quest.toyQuestNum == 7)
+        {
+            AudioManager.instance.Play("Scream7");
+        }
+        else
+        {
+            AudioManager.instance.Play("Scream8");
         }
     }
 

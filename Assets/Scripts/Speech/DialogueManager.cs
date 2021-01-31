@@ -85,6 +85,14 @@ public class DialogueManager : MonoBehaviour
         {
             GameObject.Find(GameManager.instance.currentQuestToy.name.ToString()).layer = 9;
         }
+        AudioManager.instance.Stop("Scream0");
+        AudioManager.instance.Stop("Scream1");
+        AudioManager.instance.Stop("Scream2");
+        AudioManager.instance.Stop("Scream3");
+        AudioManager.instance.Stop("Scream4");
+        AudioManager.instance.Stop("Scream5");
+        AudioManager.instance.Stop("Scream6");
+        AudioManager.instance.Stop("Scream7");
     }
 
 }

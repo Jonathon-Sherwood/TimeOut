@@ -28,6 +28,7 @@ public class EnemyRelease : MonoBehaviour
         {
             if (Input.anyKey)
             {
+                AudioManager.instance.Stop("CaughtScream");
                 playMusic.SetActive(true);
                 player.GetComponent<PlayerMovement>().canMove = true;
                 gameObject.SetActive(false);
