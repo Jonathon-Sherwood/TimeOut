@@ -21,7 +21,6 @@ public class VictoryScreen : MonoBehaviour
         if (currentTimeLeft < 0)
         {
             kids[Random.Range(0, kids.Length)].GetComponent<Animator>().Play("Jump");
-            print("jump");
             currentTimeLeft = Random.Range(0,timeLeft);
         }
 

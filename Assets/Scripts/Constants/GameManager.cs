@@ -1,20 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance; //Allows all scripts to call this.
 
-    public int toyCountHub = 0;
-    public int toyCountRm1 = 0;
-    public int toyCountRm2 = 0;
-    public int toyCountRm3 = 0;
-    public int toyCountRm4 = 0;
+    public int toyCount = 0;
 
     public List<GameObject> toys;
     public List<Quests> children;
     public GameObject currentQuestToy;
+    public GameObject canvas;
     public bool hasToy = false;
     [HideInInspector] public bool onQuest;
     [HideInInspector] public bool runOnce = true;
@@ -23,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
 
             instance = this;
+        canvas.SetActive(true);
 
         foreach(GameObject child in GameObject.FindGameObjectsWithTag("Child"))
         {
@@ -44,6 +43,11 @@ public class GameManager : MonoBehaviour
         if ((currentQuestToy != null) && !hasToy && onQuest)
         {
             MoveToy();
+        }
+
+        if(toyCount >= 8)
+        {
+            SceneManager.LoadScene(2);
         }
     }
 

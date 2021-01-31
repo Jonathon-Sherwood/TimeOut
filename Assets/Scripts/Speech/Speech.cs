@@ -37,6 +37,7 @@ public class Speech : MonoBehaviour
                 GameManager.instance.hasToy = false;
                 quest.isQuest = false;
                 GameManager.instance.children.Remove(this.quest);
+                GameManager.instance.toyCount++;
             }
             else
             {
