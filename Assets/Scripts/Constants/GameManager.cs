@@ -21,16 +21,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        //Turns the gamemanager into a singleton.
-        if (instance == null)
-        {
+
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+
         foreach(GameObject child in GameObject.FindGameObjectsWithTag("Child"))
         {
             children.Add(child.GetComponent<Quests>());
