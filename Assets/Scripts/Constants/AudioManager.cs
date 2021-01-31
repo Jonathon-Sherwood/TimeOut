@@ -10,16 +10,10 @@ public class AudioManager : MonoBehaviour
     //Sets this as a singleton.
     public void Awake()
     {
-        if (instance == null)
-        {
+
             instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
+        
+
 
         //Sets the variables created in Sound to be adjusted by this.
         foreach (Sound s in sounds)

@@ -24,8 +24,7 @@ public class VictoryScreen : MonoBehaviour
             currentTimeLeft = Random.Range(0,timeLeft);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
-        {
+        if (Input.anyKeyDown) { 
             SceneManager.LoadScene(0);
         }
     }

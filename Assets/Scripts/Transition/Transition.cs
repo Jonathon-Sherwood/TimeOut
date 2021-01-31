@@ -19,6 +19,7 @@ public class Transition : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            AudioManager.instance.Play("Door");
             covers.SetActive(true);
             cmConfiner.m_BoundingShape2D = confiner;
             hubcovers.SetActive(false);

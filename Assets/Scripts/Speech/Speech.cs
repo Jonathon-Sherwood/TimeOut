@@ -31,6 +31,7 @@ public class Speech : MonoBehaviour
             }
             else if (quest.hasQuestItem && quest.isQuest)
             {
+                AudioManager.instance.Play("QuestComplete");
                 GameManager.instance.onQuest = false;
                 dialogueNum = 1;
                 GameManager.instance.currentQuestToy = null;

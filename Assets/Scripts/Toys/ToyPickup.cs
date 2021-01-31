@@ -16,6 +16,7 @@ public class ToyPickup : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            AudioManager.instance.Play("Pickup");
             GameManager.instance.hasToy = true;
             gameObject.SetActive(false);
         }

@@ -8,7 +8,7 @@ public class Quests : MonoBehaviour
     public bool hasQuestItem;
     public bool isQuest;
 
-    [Range(0, 11)]
+    [Range(0, 7)]
     public int toyQuestNum;
     // Start is called before the first frame update
     void Start()

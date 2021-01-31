@@ -11,6 +11,7 @@ public class CountDown : MonoBehaviour
     public Image waitCountdownImageThing;
     public GameObject timesUpImage;
     public GameObject player;
+    public GameObject playMusic;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +25,10 @@ public class CountDown : MonoBehaviour
         waitCountdownImageThing.fillAmount = currentTimeLeft / timeLeft;
         if (currentTimeLeft < 0)
         {
+            playMusic.SetActive(true);
             timesUpImage.SetActive(true);
             player.GetComponent<PlayerMovement>().canMove = false;
-            if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
+            if(Input.anyKeyDown)
             {
                 SceneManager.LoadScene(0);
             }
