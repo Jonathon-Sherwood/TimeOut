@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool canMove = true;
     Vector2 movement;
 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!canMove) { return; }
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
